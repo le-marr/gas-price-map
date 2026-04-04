@@ -1,0 +1,17 @@
+{
+  "theme": {
+    "dark": "Sombre",
+    "light": "Clair"
+  },
+  "fuelType": {
+    "regular": "Régulier",
+    "super": "Super",
+    "diesel": "Diesel"
+  },
+  "radius": "Rayon",
+  "showCheapest": "Afficher les moins chers",
+  "showAll": "Afficher tout",
+  "loading": "Chargement des données...",
+  "error": "Erreur de chargement des données",
+  "youAreHere": "Vous êtes ici"
+}

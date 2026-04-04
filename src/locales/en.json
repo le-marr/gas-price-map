@@ -1,0 +1,17 @@
+{
+  "theme": {
+    "dark": "Dark",
+    "light": "Light"
+  },
+  "fuelType": {
+    "regular": "Regular",
+    "super": "Super",
+    "diesel": "Diesel"
+  },
+  "radius": "Radius",
+  "showCheapest": "Show Cheapest",
+  "showAll": "Show All",
+  "loading": "Loading data...",
+  "error": "Error loading data",
+  "youAreHere": "You are here"
+}
