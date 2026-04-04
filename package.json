@@ -1,6 +1,9 @@
 {
   "scripts": {
-    "build": "vite build"
+    "dev": "vite",
+    "dev:local-data": "vite --mode localdata",
+    "build": "vite build",
+    "build:local-data": "vite build --mode localdata"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.2.0",

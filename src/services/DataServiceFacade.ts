@@ -13,10 +13,13 @@ type DataSource = 'json' | 'excel';
 class DataServiceFacade {
     /**
      * Returns the appropriate data service based on the flags.
-     * @param localMode If true, returns a service that loads local data.
      * @param source The desired data format ('json' or 'excel').
      */
-    public getService(localMode: boolean = false, source: DataSource = 'json'): IDataService {
+    public getService(source: DataSource = 'json'): IDataService {
+        const localMode = import.meta.env.VITE_USE_LOCAL_DATA === 'true'
+        const devMode = import.meta.env.DEV;
+        console.log("localMode="+localMode+" devMode="+devMode+" source="+source+ " useLocalData="+import.meta.env.VITE_USE_LOCAL_DATA)
+
         if (localMode) {
             if (source === 'json') {
                 console.log('Using LocalJsonDataService');

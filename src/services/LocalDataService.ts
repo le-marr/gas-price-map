@@ -1,16 +1,29 @@
 import * as XLSX from 'xlsx';
 import { cacheService } from './CacheService';
 import { FuelData, Station, FuelMetadata } from './DataService';
-import localDataUrl from '../../data/stations-test.xlsx';
 
 const CACHE_KEY = 'stations-data-local-excel';
 
 class LocalDataService {
     public async getFuelData(): Promise<FuelData> {
+        // This service is intended for development or local builds only.
+        const useLocalData = import.meta.env.DEV || import.meta.env.VITE_USE_LOCAL_DATA === 'true';
+
+        if (!useLocalData) {
+            console.warn('LocalDataService is disabled. Returning empty data.');
+            return {
+                stations: [],
+                metadata: { updatedAt: new Date().toLocaleString(), totalStations: 0 },
+            };
+        }
+
         const cachedData = await cacheService.get<FuelData>(CACHE_KEY);
         if (cachedData) {
             return cachedData;
         }
+
+        // Dynamically import the local data file.
+        const localDataUrl = (await import('../../data/stations-test.xlsx')).default;
 
         console.log('Fetching local Excel data from:', localDataUrl);
         const response = await fetch(localDataUrl);

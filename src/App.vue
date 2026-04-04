@@ -92,9 +92,9 @@ export default defineComponent({
       try {
         isLoading.value = true;
         // Updated call to use the new signature
-        const service = dataServiceFacade.getService(false, 'json');
-        // const service = dataServiceFacade.getService(true, 'json');
-        // const service = dataServiceFacade.getService(true, "excel");
+        const service = dataServiceFacade.getService();
+        // const service = dataServiceFacade.getService('json');
+        // const service = dataServiceFacade.getService('excel');
         fuelData.value = await service.getFuelData();
       } catch (e: any) {
         error.value = e.message || 'Unknown error occurred';
