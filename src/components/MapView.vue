@@ -183,13 +183,13 @@ onMounted(() => {
 </style>
 
 <style>
-/* Глобальные стили для иконок */
+/* Global icon styles */
 .custom-div-icon { background: none; border: none; }
 .marker-pin { position: relative; width: 40px; height: 55px; display: flex; flex-direction: column; align-items: center; }
 .marker-pin img { width: 40px; height: 40px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.3); transition: border-color 0.3s; }
 .price-badge { background-color: rgba(0, 0, 0, 0.7); color: white; padding: 2px 6px; border-radius: 10px; font-size: 12px; font-weight: bold; position: absolute; bottom: 0; transform: translateX(50%); right: 50%; border: 1px solid white; transition: background-color 0.3s; }
 
-/* Цветовое кодирование */
+/* Color coding */
 .price-low .price-badge { background-color: #1a9850; }
 .price-medium .price-badge { background-color: #fec107; }
 .price-high .price-badge { background-color: #d73027; }
@@ -198,7 +198,7 @@ onMounted(() => {
 .price-medium .marker-pin img { border-color: #fec107; }
 .price-high .marker-pin img { border-color: #d73027; }
 
-/* Стили для попапа */
+/* Popup styles */
 .station-popup { display: flex; flex-direction: column; gap: 8px; }
 .popup-header { display: flex; flex-direction: column; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
 .popup-header b { font-size: 16px; }

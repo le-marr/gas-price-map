@@ -92,11 +92,12 @@ export default defineComponent({
       try {
         isLoading.value = true;
         // Updated call to use the new signature
-        const service = dataServiceFacade.getService(true, 'json');
+        const service = dataServiceFacade.getService(false, 'json');
+        // const service = dataServiceFacade.getService(true, 'json');
         // const service = dataServiceFacade.getService(true, "excel");
         fuelData.value = await service.getFuelData();
       } catch (e: any) {
-        error.value = e.message || 'Произошла неизвестная ошибка';
+        error.value = e.message || 'Unknown error occurred';
       } finally {
         isLoading.value = false;
       }

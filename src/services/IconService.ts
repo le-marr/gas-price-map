@@ -1,6 +1,6 @@
-// --- Получаем все иконки из директории на этапе сборки ---
-// { eager: true } заставляет Vite сразу загрузить модули, а не делать их ленивыми.
-// Результат: объект вида { '/path/to/icon.png': 'processed-url.png' }
+// --- Retrieve all icons from the directory during build stage ---
+// { eager: true } forces Vite to load modules instead of making them lazy
+// Result example: { '/path/to/icon.png': 'processed-url.png' }
 const iconModules = import.meta.glob('/src/assets/icons/*.png', { eager: true });
 
 class IconService {
