@@ -11,6 +11,18 @@ import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 import 'leaflet.markercluster';
 import '@fortawesome/fontawesome-free/css/all.css';
 
+// Fix for default Leaflet icons with Vite and base path
+// This prevents Leaflet from trying to guess the icon URL based on its CSS,
+// which often leads to incorrect paths with bundlers and custom base paths.
+delete (L.Icon.Default.prototype as any)._getIconUrl;
+
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: new URL('leaflet/dist/images/marker-icon-2x.png', import.meta.url).href,
+  iconUrl: new URL('leaflet/dist/images/marker-icon.png', import.meta.url).href,
+  shadowUrl: new URL('leaflet/dist/images/marker-shadow.png', import.meta.url).href,
+});
+
+
 import { Station } from '../services/DataService';
 import { iconService } from '../services/IconService';
 import { FuelType, DisplayMode } from '../types';
@@ -163,6 +175,7 @@ onMounted(() => {
       (position) => {
         userLocation.value = L.latLng(position.coords.latitude, position.coords.longitude);
         map.setView(userLocation.value, 13);
+        // The default Leaflet marker is used here, which is now correctly configured
         L.marker(userLocation.value).addTo(map).bindPopup('You are here');
         emit('location-found', true);
       },
